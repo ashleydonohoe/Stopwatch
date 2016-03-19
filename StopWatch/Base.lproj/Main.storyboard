@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,11 +17,120 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiJ-DL-CHr">
+                                <rect key="frame" x="279" y="290" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="69"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="as9-uF-kgp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="l9U-2y-K2E"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Timer" id="e72-LJ-XKa">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="play" id="lEN-tp-W4Q">
+                                            <connections>
+                                                <action selector="startTimer:" destination="BYZ-38-t0r" id="0hv-6U-bnK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="DsN-UH-mRn">
+                                            <connections>
+                                                <action selector="stopTimer:" destination="BYZ-38-t0r" id="hcc-ho-BB0"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="l9U-2y-K2E"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="l9U-2y-K2E"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-5z-PI9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="l3x-wX-hNL"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="pause" id="RcG-J1-EdK">
+                                        <connections>
+                                            <action selector="pauseTimer:" destination="BYZ-38-t0r" id="FfI-3l-srI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="RGX-v9-gBM"/>
+                                    <barButtonItem title="Resume" id="9pY-44-vrS">
+                                        <connections>
+                                            <action selector="startTimer:" destination="BYZ-38-t0r" id="sgK-wI-KUG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="l3x-wX-hNL"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="l3x-wX-hNL"/>
+                                    </mask>
+                                </variation>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="as9-uF-kgp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="1g6-P3-ma1"/>
+                            <constraint firstItem="as9-uF-kgp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6Cv-au-Ua2"/>
+                            <constraint firstItem="BiJ-DL-CHr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="DJp-Am-jgk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bkh-5z-PI9" secondAttribute="bottom" id="Ju1-Lr-27S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bkh-5z-PI9" secondAttribute="trailing" constant="-20" id="Qkw-v9-oyr"/>
+                            <constraint firstItem="bkh-5z-PI9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="e4p-8A-Os3"/>
+                            <constraint firstItem="BiJ-DL-CHr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s7X-zC-dU6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="as9-uF-kgp" secondAttribute="trailing" constant="-20" id="tXT-AX-Leq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="as9-uF-kgp"/>
+                                <exclude reference="bkh-5z-PI9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1g6-P3-ma1"/>
+                                <exclude reference="6Cv-au-Ua2"/>
+                                <exclude reference="tXT-AX-Leq"/>
+                                <exclude reference="Qkw-v9-oyr"/>
+                                <exclude reference="e4p-8A-Os3"/>
+                                <exclude reference="Ju1-Lr-27S"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="as9-uF-kgp"/>
+                                <include reference="bkh-5z-PI9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1g6-P3-ma1"/>
+                                <include reference="6Cv-au-Ua2"/>
+                                <include reference="tXT-AX-Leq"/>
+                                <include reference="Qkw-v9-oyr"/>
+                                <include reference="e4p-8A-Os3"/>
+                                <include reference="Ju1-Lr-27S"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="BiJ-DL-CHr" id="UuF-0j-Ab8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="304.5" y="357"/>
         </scene>
     </scenes>
 </document>
